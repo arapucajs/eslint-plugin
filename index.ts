@@ -1,14 +1,14 @@
 /*
- * @adonisjs/eslint-plugin
+ * @arapucajs/eslint-plugin
  *
- * (c) AdonisJS
+ * (c) ArapucaJS
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * Para informações completas de copyright e licença, consulte o arquivo LICENSE
+ * que foi distribuído com este código-fonte.
  */
 
-import preferLazyListenerImport from './src/rules/prefer_lazy_listener_import.js'
-import preferLazyControllerImport from './src/rules/prefer_lazy_controller_import.js'
+import preferLazyListenerImport from './src/rules/lazy_listener_import.js'
+import preferLazyControllerImport from './src/rules/lazy_controller_import.js'
 
 export default {
   rules: {

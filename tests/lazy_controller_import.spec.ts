@@ -1,14 +1,14 @@
 /*
- * @adonisjs/eslint-plugin
+ * @arapucajs/eslint-plugin
  *
- * (c) AdonisJS
+ * (c) ArapucaJS
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * Para obter informações completas sobre direitos autorais e licença, consulte o arquivo LICENSE
+ * que foi distribuído com este código-fonte.
  */
 
 import { RuleTester } from '@typescript-eslint/rule-tester'
-import rule from '../src/rules/prefer_lazy_controller_import.js'
+import rule from '../src/rules/lazy_controller_import.js'
 
 const valids = [
   {
