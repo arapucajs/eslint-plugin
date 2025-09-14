@@ -16,8 +16,10 @@
     ".": "./build/index.js"
   },
   "scripts": {
+    "lint": "eslint",
     "prepare": "husky",
-    "commitlint": "commitlint --edit"
+    "commitlint": "commitlint --edit",
+    "format": "prettier --write ."
   },
   "homepage": "https://github.com/arapucajs/eslint-plugin#readme",
   "repository": {

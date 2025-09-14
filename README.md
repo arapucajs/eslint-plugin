@@ -25,13 +25,16 @@
 O pacote já vem pré-configurado com o preset [@arapucajs/eslint-config](https://github.com/arapucajs/eslint-config), portanto a instalação manual não é necessária.
 
 No entanto, você pode instalar e configurar da seguinte forma:
+
 ```sh
 bun add -D @adonisjs/eslint-plugin
 
 # instele as dependencias peer
 bun add -d eslint typescript typescript-eslint
 ```
+
 ou
+
 ```sh
 npm i -D @adonisjs/eslint-plugin
 
