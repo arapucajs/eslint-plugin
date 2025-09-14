@@ -7,7 +7,7 @@
  * que foi distribuído com este código-fonte.
  */
 
-import { RuleTester } from '@typescript-eslint/rule-tester'
+// import { RuleTester } from '@typescript-eslint/rule-tester'
 
 // Adapte RuleTester para usar Bun test
 // RuleTester.it = it
