@@ -15,9 +15,12 @@ RuleTester.describe = describe
 RuleTester.afterAll = afterAll
 
 // Exemplo de uso do RuleTester (ajuste conforme necessário)
-const ruleTester = new RuleTester({
-  parser: require.resolve('@typescript-eslint/parser'),
+RuleTester.setDefaultConfig({
+  parser: '@typescript-eslint/parser',
+  parserOptions: { ecmaVersion: 2020, sourceType: 'module' },
 })
 
 // Importe seus testes normalmente
-import.meta.glob('./tests/**/*.spec.ts', { eager: true })
+import rule from '../src/rules/lazy_controller_import.js'
+
+const ruleTester = new RuleTester()

@@ -16,10 +16,21 @@
     ".": "./build/index.js"
   },
   "scripts": {
-    "lint": "eslint",
+    "pretest": "npm run lint",
+    "test": "bun test",
+    "lint": "eslint .",
     "prepare": "husky",
     "commitlint": "commitlint --edit",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "clean": "del-cli build",
+    "typecheck": "tsc --noEmit",
+    "precompile": "npm run lint && npm run clean",
+    "compile": "tsup-node && tsc --emitDeclarationOnly --declaration",
+    "build": "npm run compile",
+    "release": "release-it",
+    "version": "npm run build",
+    "prepublishOnly": "npm run build",
+    "quick:test": "node --import=ts-node-maintained/register/esm --enable-source-maps bin/test.ts"
   },
   "homepage": "https://github.com/arapucajs/eslint-plugin#readme",
   "repository": {
@@ -69,7 +80,9 @@
     "@swc/cli": "^0.7.7",
     "@swc/core": "^1.12.7",
     "@types/node": "^24.0.8",
+    "@typescript-eslint/parser": "^8.43.0",
     "@typescript-eslint/rule-tester": "^8.37.0",
+    "bun-types": "^1.2.22",
     "c8": "^10.1.3",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
