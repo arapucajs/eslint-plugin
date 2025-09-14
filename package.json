@@ -17,7 +17,7 @@
   },
   "scripts": {
     "pretest": "npm run lint",
-    "test": "bun test",
+    "test": "c8 npm run quick:test",
     "lint": "eslint .",
     "prepare": "husky",
     "commitlint": "commitlint --edit",
