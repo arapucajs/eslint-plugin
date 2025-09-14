@@ -6,10 +6,10 @@ on:
 
 jobs:
   test:
-    uses: arapucajs/actions/.github/workflows/test.yml@main
+    uses: arapucajs/.github/.github/workflows/test.yml@main
 
   lint:
-    uses: arapucajs/actions/.github/workflows/lint.yml@main
+    uses: arapucajs/.github/.github/workflows/lint.yml@main
 
   typecheck:
-    uses: arapucajs/actions/.github/workflows/typecheck.yml@main
+    uses: arapucajs/.github/.github/workflows/typecheck.yml@main
