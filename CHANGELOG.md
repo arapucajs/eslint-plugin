@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/arapucajs/eslint-plugin/compare/v1.0.3...v1.0.4) (2025-09-15)
+
+
+### Bug Fixes
+
+* **ci:** excluido arquivos de ci desnecessarios ([b2e867e](https://github.com/arapucajs/eslint-plugin/commit/b2e867e10359301952f1c52372f7b33ee0c18a3e))
+
 ## [1.0.3](https://github.com/arapucajs/eslint-plugin/compare/v1.0.2...v1.0.3) (2025-09-15)
 
 
