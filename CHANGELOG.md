@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/arapucajs/eslint-plugin/compare/v1.0.0...v1.0.1) (2025-09-15)
+
+
+### Bug Fixes
+
+* **tags:** ateracao para acionamento de deploy pela tag ([fee865d](https://github.com/arapucajs/eslint-plugin/commit/fee865de1f0ca3ef938c2277c3461c8884b8701c))
+
 ## 1.0.0 (2025-09-15)
 
 
