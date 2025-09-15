@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/arapucajs/eslint-plugin/compare/v1.0.2...v1.0.3) (2025-09-15)
+
+
+### Bug Fixes
+
+* **readme:** aterando readme para melhor funcionamento ([1b9a127](https://github.com/arapucajs/eslint-plugin/commit/1b9a127c1e73d936c4ae926b39cdc23044b512e5))
+
 ## [1.0.2](https://github.com/arapucajs/eslint-plugin/compare/v1.0.1...v1.0.2) (2025-09-15)
 
 
