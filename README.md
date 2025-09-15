@@ -117,11 +117,11 @@ emitter.on('user:created', [SendVerificationEmail, 'handle'])
   <sub>Feito com ❤︎ por <a href="https://github.com/JefteCosta">Jefte Costa</a> 
 </div>
 
-[gh-workflow-image]: https://img.shields.io/github/actions/workflow/status/adonisjs/eslint-plugin-adonisjs/checks.yml?style=for-the-badge
-[gh-workflow-url]: https://github.com/adonisjs/eslint-plugin-adonisjs/actions/workflows/checks.yml 'Github action'
+[gh-workflow-image]: https://img.shields.io/github/actions/workflow/status/arapucajs/eslint-plugin/checks.yml?style=for-the-badge
+[gh-workflow-url]: https://github.com/arapucajs/eslint-plugin/actions/workflows/checks.yml 'Github action'
 [typescript-image]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
 [typescript-url]: "typescript"
-[npm-image]: https://img.shields.io/npm/v/@adonisjs/eslint-plugin/latest.svg?style=for-the-badge&logo=npm
-[npm-url]: https://www.npmjs.com/package/@adonisjs/eslint-plugin/v/latest 'npm'
+[npm-image]: https://img.shields.io/npm/v/@arapucajs/eslint-plugin/latest.svg?style=for-the-badge&logo=npm
+[npm-url]: https://www.npmjs.com/package/@arapucajs/eslint-plugin/v/latest 'npm'
 [license-url]: LICENSE.md
-[license-image]: https://img.shields.io/github/license/adonisjs/eslint-plugin-adonisjs?style=for-the
+[license-image]: https://img.shields.io/github/license/arapucajs/eslint-plugin?style=for-the
