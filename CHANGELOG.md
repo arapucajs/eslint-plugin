@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.6](https://github.com/arapucajs/eslint-plugin/compare/v1.0.5...v1.0.6) (2025-09-15)
+
+
+### Bug Fixes
+
+* **ci:** corrigindo erro de ci para publicar ([91a4def](https://github.com/arapucajs/eslint-plugin/commit/91a4defdd10616c12d10fa3b87fa17dd4bfe5337))
+
 ## [1.0.5](https://github.com/arapucajs/eslint-plugin/compare/v1.0.4...v1.0.5) (2025-09-15)
 
 
