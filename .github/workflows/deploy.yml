@@ -2,6 +2,9 @@ name: Publish package to GitHub Packages
 on:
   release:
     types: [published]
+  push:
+    tags:
+      - 'v*.*.*'
 jobs:
   gh-pkg-deploy:
     runs-on: ubuntu-latest
