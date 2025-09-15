@@ -6,14 +6,17 @@ on:
 
 jobs:
   typecheck:
+    if: ${{ !needs.release.outputs.release_created }}
     uses: arapucajs/.github/.github/workflows/typecheck.yml@main
 
   lint:
     needs: typecheck
+    if: ${{ !needs.release.outputs.release_created }}
     uses: arapucajs/.github/.github/workflows/lint.yml@main
 
   test:
     needs: lint
+    if: ${{ !needs.release.outputs.release_created }}
     uses: arapucajs/.github/.github/workflows/test.yml@main
 
   release:
@@ -22,6 +25,9 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
     steps:
       - uses: actions/checkout@v4
       - uses: googleapis/release-please-action@v4
@@ -44,6 +50,7 @@ jobs:
 
   gh-pkg-deploy:
     needs: release
+    if: ${{ needs.release.outputs.release_created }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -65,6 +72,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   npm-deploy:
     needs: gh-pkg-deploy
+    if: ${{ needs.release.outputs.release_created }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
