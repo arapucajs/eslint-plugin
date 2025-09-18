@@ -53,11 +53,11 @@ import arapucajsPlugin from '@arapucajs/eslint-plugin'
 export default [
   {
     plugins: {
-      '@adonisjs': arapucajsPlugin,
+      '@arapucajs': arapucajsPlugin,
     },
     rules: {
-      '@adonisjs/prefer-lazy-controller-import': 'error',
-      '@adonisjs/prefer-lazy-listener-import': 'error',
+      '@arapucajs/prefer-lazy-controller-import': 'error',
+      '@arapucajs/prefer-lazy-listener-import': 'error',
     },
   },
 ]
@@ -68,7 +68,7 @@ export default [
 > [!IMPORTANTE]
 > O modo HMR do ArapucaJS só funciona com controllers carregados de forma dinâmica (lazy loaded)
 
-A regra `@adonisjs/prefer-lazy-controller-import` acusa erro quando você importa um controller usando a expressão de importação padrão e o atribui a uma rota. Por exemplo:
+A regra `@arapucajs/prefer-lazy-controller-import` acusa erro quando você importa um controller usando a expressão de importação padrão e o atribui a uma rota. Por exemplo:
 
 ```ts
 import router from '@arapucajs/core/services/router'
@@ -93,7 +93,7 @@ router.get('users', [UsersController, 'index'])
 > [!IMPORTANTE]
 > O modo HMR do ArapucaJS só funciona com event listeners carregados de forma dinâmica (lazy loaded)
 
-A regra `@adonisjs/prefer-lazy-listener-import` acusa erro quando você importa um event listener usando a expressão de importação padrão e o atribui a um evento. Por exemplo:
+A regra `@arapucajs/prefer-lazy-listener-import` acusa erro quando você importa um event listener usando a expressão de importação padrão e o atribui a um evento. Por exemplo:
 
 ```ts
 import emitter from '@arapucajs/core/services/emitter'
