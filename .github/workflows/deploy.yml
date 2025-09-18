@@ -3,6 +3,8 @@ on:
   push:
     tags:
       - 'v*.*.*'
+  release:
+    types: [published]
 jobs:
   gh-pkg-deploy:
     name: Publish to GitHub Packages
