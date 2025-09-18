@@ -6,17 +6,14 @@ on:
 
 jobs:
   typecheck:
-    if: github.ref_type != 'tag'
     uses: arapucajs/.github/.github/workflows/typecheck.yml@main
 
   lint:
     needs: typecheck
-    if: github.ref_type != 'tag'
     uses: arapucajs/.github/.github/workflows/lint.yml@main
 
   test:
     needs: lint
-    if: github.ref_type != 'tag'
     uses: arapucajs/.github/.github/workflows/test.yml@main
 
 
