@@ -98,11 +98,11 @@
     "typescript-eslint": "^8.35.1"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.43.0",
-    "@typescript-eslint/parser": "^8.43.0",
-    "@typescript-eslint/rule-tester": "^8.43.0",
-    "@typescript-eslint/types": "^8.43.0",
-    "@typescript-eslint/utils": "^8.43.0"
+    "@typescript-eslint/eslint-plugin": "^8.44.0",
+    "@typescript-eslint/parser": "^8.44.0",
+    "@typescript-eslint/rule-tester": "^8.44.0",
+    "@typescript-eslint/types": "^8.44.0",
+    "@typescript-eslint/utils": "^8.44.0"
   },
   "peerDependencies": {
     "eslint": "^9.30.0"
