@@ -14,7 +14,7 @@ const valids = [
   {
     name: 'Lazy import',
     code: `
-  import emitter from '@adonisjs/core/services/emitter'
+  import emitter from '@arapucajs/core/services/emitter'
   const SendVerificationEmail = () => import('#listeners/send_verification_email')
 
   emitter.on('user:registered', [SendVerificationEmail, 'handle'])
@@ -26,13 +26,13 @@ const invalids = [
   {
     name: 'Import expression',
     code: `
-    import emitter from '@adonisjs/core/services/emitter'
+    import emitter from '@arapucajs/core/services/emitter'
     import SendVerificationEmail from '#listeners/send_verification_email'
 
     emitter.on('user:registered', [SendVerificationEmail, 'handle'])
     `,
     output: `
-    import emitter from '@adonisjs/core/services/emitter'
+    import emitter from '@arapucajs/core/services/emitter'
     const SendVerificationEmail = () => import('#listeners/send_verification_email')
 
     emitter.on('user:registered', [SendVerificationEmail, 'handle'])

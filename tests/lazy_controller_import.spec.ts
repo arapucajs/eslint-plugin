@@ -14,7 +14,7 @@ const valids = [
   {
     name: 'Lazy import',
     code: `
-      import router from "@adonisjs/core/services/router"
+      import router from "@arapucajs/core/services/router"
       const lazyController = () => import("./controller")
 
       router.get("/", "HomeController.index")
@@ -23,7 +23,7 @@ const valids = [
   },
   {
     name: 'Lazy import with middleware',
-    code: `import router from "@adonisjs/core/services/router"
+    code: `import router from "@arapucajs/core/services/router"
   import middleware from '#start/middleware'
 
   const lazyController = () => import("./controller")
@@ -37,7 +37,7 @@ const invalids = [
   {
     name: 'Import expression',
     code: `
-    import router from "@adonisjs/core/services/router"
+    import router from "@arapucajs/core/services/router"
     import HomeController from "./controller"
 
     router.group(() => {
@@ -45,7 +45,7 @@ const invalids = [
     })
     `,
     output: `
-    import router from "@adonisjs/core/services/router"
+    import router from "@arapucajs/core/services/router"
     const HomeController = () => import("./controller")
 
     router.group(() => {
@@ -57,13 +57,13 @@ const invalids = [
   {
     name: 'Import expression with resource',
     code: `
-    import router from "@adonisjs/core/services/router"
+    import router from "@arapucajs/core/services/router"
     import ProjectThreadsController from "./controller"
 
     router.resource("project/:id/threads", ProjectThreadsController)
     `,
     output: `
-    import router from "@adonisjs/core/services/router"
+    import router from "@arapucajs/core/services/router"
     const ProjectThreadsController = () => import("./controller")
 
     router.resource("project/:id/threads", ProjectThreadsController)
