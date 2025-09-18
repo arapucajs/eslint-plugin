@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.2.0](https://github.com/arapucajs/eslint-plugin/compare/v1.1.0...v1.2.0) (2025-09-18)
+
+
+### Features
+
+* set package-ecosystem to 'npm' in dependabot config ([20e41fd](https://github.com/arapucajs/eslint-plugin/commit/20e41fd0de074bbd651550114ec2b6ab7f73c882))
+
+
+### Bug Fixes
+
+* **ci:** aterando para funcionar somente com novas tegs o deploy ([393f9e0](https://github.com/arapucajs/eslint-plugin/commit/393f9e0dc8d2c4630d34fd9371bc06e3728c42de))
+* **deploy:** action so aciona atravez de uma tag ([2223356](https://github.com/arapucajs/eslint-plugin/commit/2223356b3055e9ca4155372526b31beb04e2347a))
+* **eslint:** upgrade version rule-tester 8.44.0 ([b0eaf62](https://github.com/arapucajs/eslint-plugin/commit/b0eaf62c1200ba862487309b62cc92f017ac8d33))
+* **package:** atualizando versao do eslint ([08be13b](https://github.com/arapucajs/eslint-plugin/commit/08be13ba76164a744fc1b1135f6dc62c84b77e30))
+* **package:** swc atualização do pacote ([07520f4](https://github.com/arapucajs/eslint-plugin/commit/07520f454e4be58ad5fce7213da376764d4dcd43))
+* **prs:** testando pqs para verificacao de aprovacao ([29abad9](https://github.com/arapucajs/eslint-plugin/commit/29abad9416741b69125b65c53fe1cace034e4599))
+
 ## [1.1.0](https://github.com/arapucajs/eslint-plugin/compare/v1.0.6...v1.1.0) (2025-09-18)
 
 
