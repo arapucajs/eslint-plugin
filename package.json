@@ -1,7 +1,7 @@
 {
   "name": "@arapucajs/eslint-plugin",
   "description": "ESLint plugin to enforce ArapucaJS app specific linting rules",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "engines": {
     "node": ">=20.6.0"
   },
