@@ -6,7 +6,6 @@ on:
 jobs:
   gh-pkg-deploy:
     name: Publish to GitHub Packages
-    if: github.ref_type == 'tag'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -22,20 +21,16 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@arapucajs'
       - name: Install dependencies
-        if: github.ref_type == 'tag'
         run: npm ci
       - name: Build
-        if: github.ref_type == 'tag'
         run: npm run build
       - name: Publish package
-        if: github.ref_type == 'tag'
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   npm-deploy:
     name: Publish to npm
-    if: github.ref_type == 'tag'
     needs: gh-pkg-deploy
     runs-on: ubuntu-latest
     permissions:
@@ -50,10 +45,8 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
-        if: github.ref_type == 'tag'
         run: npm ci
       - name: Publish package
-        if: github.ref_type == 'tag'
         run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
