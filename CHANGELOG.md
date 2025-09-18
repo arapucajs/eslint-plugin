@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/arapucajs/eslint-plugin/compare/v1.0.6...v1.1.0) (2025-09-18)
+
+
+### Features
+
+* **ci:** ateracao e separacao entre check relese e deploy ([6c91bca](https://github.com/arapucajs/eslint-plugin/commit/6c91bca01b38221a3fedc1170e0a5fc99a7ef01c))
+
 ## [1.0.6](https://github.com/arapucajs/eslint-plugin/compare/v1.0.5...v1.0.6) (2025-09-15)
 
 
