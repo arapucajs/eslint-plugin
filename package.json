@@ -30,7 +30,8 @@
     "release": "release-it",
     "version": "npm run build",
     "prepublishOnly": "npm run build",
-    "quick:test": "node --import=ts-node-maintained/register/esm --enable-source-maps bin/test.ts"
+    "quick:test": "node --import=ts-node-maintained/register/esm --enable-source-maps bin/test.ts",
+    "commit": "cz"
   },
   "homepage": "https://github.com/arapucajs/eslint-plugin#readme",
   "repository": {
