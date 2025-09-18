@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.1](https://github.com/arapucajs/eslint-plugin/compare/v1.2.0...v1.2.1) (2025-09-18)
+
+
+### Bug Fixes
+
+* **erro:** aterando pre commit para correcao de eeros ([f2a5fca](https://github.com/arapucajs/eslint-plugin/commit/f2a5fca3bdee49e6c9a9802ffa940746b0fba7d7))
+* **erro:** erro no pre-commit ([22e110f](https://github.com/arapucajs/eslint-plugin/commit/22e110fb30ede24ad6b178138471ec51354b638e))
+
 ## [1.2.0](https://github.com/arapucajs/eslint-plugin/compare/v1.1.0...v1.2.0) (2025-09-18)
 
 
