@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.3](https://github.com/arapucajs/eslint-plugin/compare/v1.2.2...v1.2.3) (2025-09-18)
+
+
+### Bug Fixes
+
+* **ci:** alterando todo o ci para fim a fim ([0e65b61](https://github.com/arapucajs/eslint-plugin/commit/0e65b61111111c1c206644e615437c9efbaee5a2))
+* **release:** aterando variavel de token ([29a14e3](https://github.com/arapucajs/eslint-plugin/commit/29a14e3de332b68029554fd5d7d38ed8da6363c5))
+
 ## [1.2.2](https://github.com/arapucajs/eslint-plugin/compare/v1.2.1...v1.2.2) (2025-09-18)
 
 
