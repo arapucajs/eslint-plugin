@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/arapucajs/eslint-plugin/compare/v1.2.1...v1.2.2) (2025-09-18)
+
+
+### Bug Fixes
+
+* **deploy:** abrigando deploy depois da release ([31beca3](https://github.com/arapucajs/eslint-plugin/commit/31beca344dec827974a7011a294995c3cdf8044e))
+
 ## [1.2.1](https://github.com/arapucajs/eslint-plugin/compare/v1.2.0...v1.2.1) (2025-09-18)
 
 
