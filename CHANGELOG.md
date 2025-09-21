@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.5](https://github.com/arapucajs/eslint-plugin/compare/v1.2.4...v1.2.5) (2025-09-21)
+
+
+### Bug Fixes
+
+* **actions:** alterancao no actions para ficar em arquivos separados ([99fb34c](https://github.com/arapucajs/eslint-plugin/commit/99fb34cc1f663b2c0480e4b9b3235cdb52466553))
+* **deploy:** aterando deploy para depois que a release for criada ([0ff3dcc](https://github.com/arapucajs/eslint-plugin/commit/0ff3dcc638381d306f9caed88925355427874026))
+
 ## [1.2.4](https://github.com/arapucajs/eslint-plugin/compare/v1.2.3...v1.2.4) (2025-09-21)
 
 
