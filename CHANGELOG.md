@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.6](https://github.com/arapucajs/eslint-plugin/compare/v1.2.5...v1.2.6) (2026-10-13)
+
+
+### Bug Fixes
+
+* **deps:** align typescript-eslint packages ([d4b2bd0](https://github.com/arapucajs/eslint-plugin/commit/d4b2bd05e2756399748564268929b41ea15d6202))
+
 ## [1.2.5](https://github.com/arapucajs/eslint-plugin/compare/v1.2.4...v1.2.5) (2025-09-21)
 
 
