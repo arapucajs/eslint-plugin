@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.3.0](https://github.com/arapucajs/eslint-plugin/compare/v1.2.6...v1.3.0) (2026-10-26)
+
+
+### Features
+
+* **backend:** estutura de import para o backend ([e3689cf](https://github.com/arapucajs/eslint-plugin/commit/e3689cf8f9b06bdc957551f6fbead3e9501fb39b))
+* expand ArapucaJS ESLint rules and document plugin ([f315712](https://github.com/arapucajs/eslint-plugin/commit/f3157128a25c0625c8a183ac986ec664ed14ea3a))
+* **inertia_form:** add estrutura do inertia form para o lint ([10bd646](https://github.com/arapucajs/eslint-plugin/commit/10bd64610e7e284c6a1d8a913f3fc96c26d356ea))
+* **inertia_link:** add estrutura do inertia link para o projeto ([735be58](https://github.com/arapucajs/eslint-plugin/commit/735be58d9cf87649684c9712ac1cee8c419ed9c6))
+
+
+### Bug Fixes
+
+* **estutura:** reconfigurando estrutura para corrigir bugs ([dd73a26](https://github.com/arapucajs/eslint-plugin/commit/dd73a26386320d0cf5e1f7e1c509a520b6ef027e))
+
 ## [1.2.6](https://github.com/arapucajs/eslint-plugin/compare/v1.2.5...v1.2.6) (2026-10-13)
 
 
