@@ -1,127 +1,95 @@
 # @arapucajs/eslint-plugin
 
-> Compatível com ESLint>=9.0 e TypeScript >=5.4
+Plugin ESLint flat config com regras específicas para aplicações ArapucaJS. Ele incentiva imports lazy para controllers e listeners, recomenda os componentes de formulário e link do adaptador Inertia do AdonisJS e impede imports de código fora do frontend em arquivos da pasta `inertia/`.
 
-<hr>
-<br />
+O pacote exporta um objeto de plugin com cinco regras. Ele não inclui um preset pronto: registre o plugin e habilite as regras necessárias na configuração do ESLint.
 
-<div align="center">
-  <h3>Plugin ESLint para aplicações ArapucaJS</h3>
-  <p>
-    O plugin força sua aplicação a usar imports dinâmicos (lazy imports) para controllers e event listeners. <strong>Lazy imports são obrigatórios quando você utiliza o modo HMR no ArapucaJS</strong>.
-  </p>
-</div>
+## Requisitos
 
-<br />
-
-<div align="center">
-
-[![gh-workflow-image]][gh-workflow-url] [![typescript-image]][typescript-url] [![npm-image]][npm-url] [![license-image]][license-url]
-
-</div>
+- Node.js `>=20.6.0` (conforme `package.json`)
+- ESLint `^10.13.0` (peer dependency declarada)
+- TypeScript para os projetos que lintam arquivos TypeScript; a configuração do parser é feita pelo projeto consumidor
 
 ## Instalação
 
-O pacote já vem pré-configurado com o preset [@arapucajs/eslint-config](https://github.com/arapucajs/eslint-config), portanto a instalação manual não é necessária.
-
-No entanto, você pode instalar e configurar da seguinte forma:
-
 ```sh
-bun add -D @adonisjs/eslint-plugin
-
-# instele as dependencias peer
-bun add -d eslint typescript typescript-eslint
+npm install --save-dev @arapucajs/eslint-plugin eslint
 ```
 
-ou
+O pacote é publicado no npm e no GitHub Packages. Para usar a distribuição do GitHub Packages, configure o registry `https://npm.pkg.github.com` para o escopo `@arapucajs` antes da instalação.
 
-```sh
-npm i -D @adonisjs/eslint-plugin
+## Configuração
 
-# Instale as dependências peer
-npm i -D eslint@9 typescript typescript-eslint
-```
+Exemplo com ESLint flat config e `typescript-eslint`:
 
-## Uso
-
-Após a instalação, registre o plugin conforme abaixo. Certifique-se também de configurar o parser `typescript-eslint` para que as regras funcionem corretamente.
-
-```ts
+```js
 // eslint.config.js
-import arapucajsPlugin from '@arapucajs/eslint-plugin'
+import tseslint from 'typescript-eslint'
+import arapucajs from '@arapucajs/eslint-plugin'
 
-export default [
+export default tseslint.config(
+  ...tseslint.configs.recommended,
   {
     plugins: {
-      '@arapucajs': arapucajsPlugin,
+      '@arapucajs': arapucajs,
     },
     rules: {
       '@arapucajs/prefer-lazy-controller-import': 'error',
       '@arapucajs/prefer-lazy-listener-import': 'error',
+      '@arapucajs/prefer-adonisjs-inertia-link': 'warn',
+      '@arapucajs/prefer-adonisjs-inertia-form': 'warn',
+      '@arapucajs/no-backend-import-in-frontend': [
+        'error',
+        { allowed: ['#shared/**'] },
+      ],
     },
   },
-]
+)
 ```
 
-## `prefer-lazy-controller-import`
+O trecho usa `typescript-eslint` apenas para ilustrar uma configuração de parser TypeScript. O consumidor deve instalar e configurar suas próprias dependências de parser. A regra de imports frontend lê o campo `imports` do `package.json` mais próximo do arquivo analisado.
 
-> [!IMPORTANTE]
-> O modo HMR do ArapucaJS só funciona com controllers carregados de forma dinâmica (lazy loaded)
+## Regras disponíveis
 
-A regra `@arapucajs/prefer-lazy-controller-import` acusa erro quando você importa um controller usando a expressão de importação padrão e o atribui a uma rota. Por exemplo:
+| Regra | Finalidade | Correção automática |
+| --- | --- | --- |
+| [`prefer-lazy-controller-import`](docs/reference/rules.md#prefer-lazy-controller-import) | Preferir controllers carregados sob demanda nas rotas ArapucaJS | Sim |
+| [`prefer-lazy-listener-import`](docs/reference/rules.md#prefer-lazy-listener-import) | Preferir listeners carregados sob demanda em eventos ArapucaJS | Sim |
+| [`prefer-adonisjs-inertia-link`](docs/reference/rules.md#prefer-adonisjs-inertia-link) | Preferir o `Link` com roteamento tipado de `@adonisjs/inertia` | Não |
+| [`prefer-adonisjs-inertia-form`](docs/reference/rules.md#prefer-adonisjs-inertia-form) | Preferir o `Form` com roteamento tipado de `@adonisjs/inertia` | Não |
+| [`no-backend-import-in-frontend`](docs/reference/rules.md#no-backend-import-in-frontend) | Bloquear imports de backend e módulos compartilhados fora de `inertia/` | Não |
+
+As regras lazy reconhecem chamadas específicas do router/emitter e as regras Inertia só analisam imports nomeados estáticos. Consulte a referência para escopo, exemplos, opções e limites precisos.
+
+## Corrigir imports lazy
+
+As duas regras lazy são corrigíveis pelo ESLint (`eslint --fix`). Exemplo do padrão produzido:
 
 ```ts
-import router from '@arapucajs/core/services/router'
-// ❌ Erro: Substitua o import padrão por um import dinâmico do controller
-import UsersController from '#controllers/user_controller'
+import UsersController from '#controllers/users_controller'
 
-router.get('users', [UsersController, 'index'])
+// passa a ser:
+const UsersController = () => import('#controllers/users_controller')
 ```
 
-A regra é auto corrigível, então você pode aplicar a correção usando os atalhos do seu editor de código.
+Revise a alteração no contexto da rota ou do listener, especialmente se um identificador importado for usado em mais lugares.
 
-```ts
-import router from '@arapucajs/core/services/router'
-// ✅ Corrigido
-const UsersController = () => import('#controllers/user_controller')
+## Desenvolvimento
 
-router.get('users', [UsersController, 'index'])
+```sh
+npm install
+npm run lint
+npm run typecheck
+npm test
+npm run build
 ```
 
-## `prefer-lazy-listener-import`
+Os comandos e o harness dos testes estão descritos em [Desenvolvimento e verificações](docs/guides/development.md). Ao alterar qualquer parte do pacote, atualize a documentação detalhada na mesma mudança e registre novas páginas em [docs/README.md](docs/README.md).
 
-> [!IMPORTANTE]
-> O modo HMR do ArapucaJS só funciona com event listeners carregados de forma dinâmica (lazy loaded)
+## Documentação
 
-A regra `@arapucajs/prefer-lazy-listener-import` acusa erro quando você importa um event listener usando a expressão de importação padrão e o atribui a um evento. Por exemplo:
+Comece pelo [índice de documentação](docs/README.md). Ele reúne guias de uso e desenvolvimento, referência das regras e opções, arquitetura e planejamento de manutenção.
 
-```ts
-import emitter from '@arapucajs/core/services/emitter'
-// ❌ Erro: Substitua o import padrão por um import dinâmico do listener
-import SendVerificationEmail from '#listeners/send_verification_email'
+## Licença
 
-emitter.on('user:created', [SendVerificationEmail, 'handle'])
-```
-
-A regra é auto corrigível, então você pode aplicar a correção usando os atalhos do seu editor de código.
-
-```ts
-import emitter from '@arapucajs/core/services/emitter'
-// ✅ Corrigido
-const SendVerificationEmail = () => import('#listeners/send_verification_email')
-
-emitter.on('user:created', [SendVerificationEmail, 'handle'])
-```
-
-<div align="center">
-  <sub>Feito com ❤︎ por <a href="https://github.com/JefteCosta">Jefte Costa</a> 
-</div>
-
-[gh-workflow-image]: https://img.shields.io/github/actions/workflow/status/arapucajs/eslint-plugin/checks.yml?style=for-the-badge
-[gh-workflow-url]: https://github.com/arapucajs/eslint-plugin/actions/workflows/checks.yml 'Github action'
-[typescript-image]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
-[typescript-url]: "typescript"
-[npm-image]: https://img.shields.io/npm/v/@arapucajs/eslint-plugin/latest.svg?style=for-the-badge&logo=npm
-[npm-url]: https://www.npmjs.com/package/@arapucajs/eslint-plugin/v/latest 'npm'
-[license-url]: LICENSE.md
-[license-image]: https://img.shields.io/github/license/arapucajs/eslint-plugin?style=for-the
+MIT. Consulte [LICENSE](LICENSE).
