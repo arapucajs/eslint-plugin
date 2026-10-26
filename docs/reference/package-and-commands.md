@@ -4,7 +4,7 @@ Esta referência resume `package.json` e deve ser atualizada junto com alteraç�
 
 ## Contrato do pacote
 
-- **Nome e versão do checkout documentado:** `@arapucajs/eslint-plugin`, `1.2.5`.
+- **Nome:** `@arapucajs/eslint-plugin`. A versão atual do checkout está em `package.json` (na base integrada para esta PR, `1.2.6`).
 - **Módulo:** ESM (`type: module`).
 - **Entrada e export:** `main` e `exports["."]` apontam para `build/index.js`.
 - **Arquivos publicados:** `build`, exceto `build/bin` e `build/tests`.
@@ -28,9 +28,12 @@ Os valores são os declarados no manifesto do checkout. Uma publicação pode te
 | `compile` | bundle via `tsup-node` e emissão de declarações |
 | `build` | `npm run compile` |
 | `clean` | remove `build` via `del-cli` |
+| `release` | executa `release-it` conforme o script declarado no manifesto |
 | `prepublishOnly` | `npm run build` |
 
 O npm executa `pretest` antes de `test` e `precompile` antes de `compile`. Essa relação afeta a sequência real dos comandos.
+
+O script `release` referencia o executável `release-it`; confirme que ele está disponível no ambiente antes de usar esse comando.
 
 ## Manifestos de dependências
 

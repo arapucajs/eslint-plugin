@@ -8,6 +8,8 @@
 
 `.github/workflows/release.yml` roda em push para `main` e invoca Release Please (`release-type: node`). Quando uma release é criada, o workflow instala dependências, cria um pacote npm (`npm pack`) e anexa o artefato à release no GitHub.
 
+O manifesto também declara um script local `npm run release`, que chama `release-it`. Esse script é distinto da automação Release Please; consulte a referência do manifesto para os requisitos de execução.
+
 ## Publicação
 
 `.github/workflows/deploy.yml` é acionado quando uma release é publicada. Ele executa `npm ci` e `npm run build`, publica no GitHub Packages e, depois, no npm com provenance. A publicação depende de secrets e permissões configurados no GitHub; os nomes dos secrets aparecem no workflow, seus valores não pertencem à documentação.

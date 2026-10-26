@@ -1,7 +1,7 @@
 {
   "name": "@arapucajs/eslint-plugin",
   "description": "ESLint plugin to enforce ArapucaJS app specific linting rules",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "engines": {
     "node": ">=20.6.0"
   },
@@ -30,7 +30,8 @@
     "version": "npm run build",
     "prepublishOnly": "npm run build",
     "quick:test": "node --import=ts-node-maintained/register/esm --enable-source-maps bin/test.ts",
-    "commit": "cz"
+    "commit": "cz",
+    "release": "release-it"
   },
   "homepage": "https://github.com/arapucajs/eslint-plugin#readme",
   "repository": {
