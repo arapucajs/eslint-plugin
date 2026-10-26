@@ -68,7 +68,7 @@ export default createEslintRule({
           }
         }
 
-        if (node.source.value === '@adonisjs/core/services/router') {
+        if (node.source.value === '@arapucajs/core/services/router') {
           if (node.specifiers[0] && node.specifiers[0].type === 'ImportDefaultSpecifier') {
             routerIdentifier = node.specifiers[0].local.name
           }
