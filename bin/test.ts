@@ -1,26 +1,46 @@
-/*
- * @arapucajs/eslint-plugin
- *
- * (c) ArapucaJS
- *
- * Para informações completas de copyright e licença, consulte o arquivo LICENSE
- * que foi distribuído com este código-fonte.
+import { assert } from '@t8ngs/assert'
+import { configure, processCLIArgs, run, test } from '@t8ngs/runner'
+import { RuleTester } from '@typescript-eslint/rule-tester'
+
+/**
+ * The setup is needed to integrate Japa with RuleTester. RuleTester
+ * needs global afterAll hook and nested groups. Since, Japa does
+ * not support nested groups we create parallel groups with
+ * nested titles with some trickiry.
  */
+let originalTitle: null | string
+let depthToSwallow = 1
+let currentDepth = 0
+let teardownCleanup: any = null
 
-// import { RuleTester } from '@typescript-eslint/rule-tester'
+RuleTester.it = test
+RuleTester.describe = (title, callback) => {
+  if (currentDepth === depthToSwallow) {
+    test.group(`${originalTitle} | ${title}`, (group) => {
+      group.teardown(teardownCleanup)
+      callback()
+    })
+  } else {
+    currentDepth++
+    originalTitle = originalTitle ? `${originalTitle} | ${title}` : title
+    callback()
+  }
+}
 
-// Adapte RuleTester para usar Bun test
-// RuleTester.it = it
-// RuleTester.describe = describe
-// RuleTester.afterAll = afterAll
+RuleTester.afterAll = (cleanup) => {
+  teardownCleanup = cleanup
+}
 
-// Exemplo de uso do RuleTester (ajuste conforme necessário)
-// RuleTester.setDefaultConfig({
-//   parser: '@typescript-eslint/parser',
-//   parserOptions: { ecmaVersion: 2020, sourceType: 'module' },
-// })
+processCLIArgs(process.argv.splice(2))
 
-// // Importe seus testes normalmente
-// import rule from '../src/rules/lazy_controller_import.js'
+configure({
+  files: ['tests/**/*.spec.ts'],
+  plugins: [assert()],
+  importer(filePath) {
+    currentDepth = 0
+    originalTitle = null
+    return import(filePath.href)
+  },
+})
 
-// const ruleTester = new RuleTester()
+run()

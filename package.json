@@ -27,7 +27,6 @@
     "precompile": "npm run lint && npm run clean",
     "compile": "tsup-node && tsc --emitDeclarationOnly --declaration",
     "build": "npm run compile",
-    "release": "release-it",
     "version": "npm run build",
     "prepublishOnly": "npm run build",
     "quick:test": "node --import=ts-node-maintained/register/esm --enable-source-maps bin/test.ts",
@@ -73,39 +72,39 @@
   },
   "prettier": "@arapucajs/prettier",
   "devDependencies": {
-    "@arapucajs/prettier": "^1.1.1",
+    "@arapucajs/prettier": "^1.2.0",
     "@arapucajs/tsconfig": "^1.0.0",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@stylistic/eslint-plugin-ts": "^4.4.1",
     "@swc/cli": "^0.7.8",
     "@swc/core": "^1.13.5",
+    "@t8ngs/assert": "^1.0.0",
+    "@t8ngs/runner": "^1.0.1",
+    "@types/micromatch": "^4.0.10",
     "@types/node": "^24.0.8",
+    "@typescript-eslint/rule-tester": "^8.72.0",
     "bun-types": "^1.2.22",
     "c8": "^10.1.3",
-    "commitizen": "^4.3.1",
+    "commitizen": "^4.3.2",
     "cz-conventional-changelog": "^3.3.0",
     "del-cli": "^6.0.0",
-    "eslint": "^9.30.0",
+    "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.5.1",
     "eslint-plugin-unicorn": "^61.0.2",
     "husky": "^9.1.7",
-    "prettier": "^3.6.2",
     "ts-node-maintained": "^10.9.5",
     "tsup": "^8.5.0",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.35.1"
+    "typescript-eslint": "^8.72.0"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.44.0",
-    "@typescript-eslint/parser": "^8.44.0",
-    "@typescript-eslint/rule-tester": "^8.44.0",
-    "@typescript-eslint/types": "^8.44.0",
-    "@typescript-eslint/utils": "^8.44.0"
+    "micromatch": "^4.0.8",
+    "read-package-up": "^12.0.0"
   },
   "peerDependencies": {
-    "eslint": "^9.30.0"
+    "eslint": "^10.13.0"
   },
   "config": {
     "commitizen": {

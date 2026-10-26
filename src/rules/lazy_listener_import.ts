@@ -56,7 +56,7 @@ export default createEslintRule({
           }
         }
 
-        if (node.source.value === '@adonisjs/core/services/emitter') {
+        if (node.source.value === '@arapucajs/core/services/emitter') {
           if (node.specifiers[0] && node.specifiers[0].type === 'ImportDefaultSpecifier') {
             emitterIdentifier = node.specifiers[0].local.name
           }
